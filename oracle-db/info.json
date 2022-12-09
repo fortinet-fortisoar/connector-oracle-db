@@ -26,18 +26,6 @@
                 "editable": true
             },
             {
-                "name": "engine",
-                "required": true,
-                "type": "select",
-                "visible": true,
-                "title": "Engine",
-                "editable": true,
-                "value":"oracle",
-                "options": [
-                    "oracle"
-                ]
-            },
-            {
                 "name": "database",
                 "required": true,
                 "type": "text",

@@ -1,5 +1,3 @@
-#dependency: https://download.oracle.com/otn_software/linux/instantclient/218000/oracle-instantclient-basic-21.8.0.0.0-1.el8.x86_64.rpm
-
 import json
 import os
 from datetime import datetime
@@ -13,7 +11,7 @@ from voluptuous import (
 )
 from connectors.core.connector import get_logger, ConnectorError
 from connectors.core.result import Result
-logger = get_logger("database.builtins")
+logger = get_logger("oracle-db")
 
 def make_query(config, params, *args, **kwargs):
     """
@@ -45,24 +43,14 @@ class DatabaseConnector():
     configuration object that aids in making queries to its configured database.
     """
 
-    driver_map = {
-        'postgresql': 'postgresql+psycopg2',
-        'mssql': 'mssql+pymssql',
-        'mysql': 'mysql+mysqlconnector',
-      	'oracle': 'oracle+cx_oracle'
-    }
+    driver = 'oracle+cx_oracle'
+    sdn_string = '{engine}://{user}:{password}@{host}:{port}/?service_name={db}'
 
-    sdn_map = {
-        'postgresql': '{engine}://{user}:{password}@{host}:{port}/{db}',
-        'mssql': '{engine}://{user}:{password}@{host}:{port}/{db}',
-        'mysql': '{engine}://{user}:{password}@{host}:{port}/{db}',
-      	'oracle': '{engine}://{user}:{password}@{host}:{port}/?service_name={db}'
-	}
     
     db_config_schema = Schema({
         Required('host'): All(str, Length(min=1)),
         Optional('port', default=0): All(Coerce(int), Range(min=0, max=65535)),
-        Required('engine'): All(str, In(driver_map.keys())),
+        Required('engine'): str,
         Required('username'): str,
         Required('password'): str,
         Required('database'): str,
@@ -83,8 +71,6 @@ class DatabaseConnector():
                 'database': '<database name>'
             }
 
-        Database type must be one of: 'postgresql', or 'mssql', or 'mysql'
-
        :param Schema db_config: Contains information describing the database.
        :return: An object that can be used to make queries against its
            configured database.
@@ -97,17 +83,15 @@ class DatabaseConnector():
         for extra_key in extra_keys:
             db_config.pop(extra_key, None)
         db_config = self.db_config_schema(db_config)
-        engine = self.driver_map[db_config['engine']]
 
-        self.dsn = self.sdn_map[db_config['engine']].format(
-            engine=engine,
+        self.dsn = self.sdn_string.format(
+            engine=self.driver,
             user=db_config['username'],
             password=db_config['password'],
             host=db_config['host'],
             port=db_config['port'],
             db=db_config['database'],
         )
-        logger.warning('\nSDN line: {}'.format(self.dsn))
         self.engine = create_engine(self.dsn, echo=False)
 
     def make_query(self, query, *args, **kwargs):

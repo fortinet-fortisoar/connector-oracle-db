@@ -2,4 +2,3 @@
 sqlalchemy
 voluptuous
 cx-Oracle==8.3.0
-pymssql>=2.2.1

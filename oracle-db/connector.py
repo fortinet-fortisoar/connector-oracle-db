@@ -2,7 +2,7 @@ from connectors.core.connector import Connector
 from .builtins import make_query
 
 
-class Database(Connector):
+class OracleDB(Connector):
 
     def execute(self, config, operation, operation_params, **kwargs):
         operations = {'db_query': make_query}

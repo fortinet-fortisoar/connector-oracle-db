@@ -1,0 +1,123 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - Oracle Database",
+      "description": null,
+      "visible": true,
+      "image": null,
+      "uuid": "e00d1505-d40e-4ba3-91f3-4dee1106b435",
+      "id": 54,
+      "deletedAt": null,
+      "importedBy": [],
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Run Query",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1670505291,
+          "collection": "/api/3/workflow_collections/e00d1505-d40e-4ba3-91f3-4dee1106b435",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/29e6fbbf-c166-46d5-b021-21f2b72cdb7c",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "1fba0c81-db2f-4b10-9659-031ac22e0e6b",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "displayConditions": {
+                  "alerts": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "640",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "29e6fbbf-c166-46d5-b021-21f2b72cdb7c"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Run Query",
+              "description": null,
+              "arguments": {
+                "name": "Oracle Database",
+                "config": "97f7c803-a025-4454-b7f2-c90bfd8c7f21",
+                "params": {
+                  "query_string": "select 1 from dual"
+                },
+                "version": "1.0.0",
+                "connector": "oracle-db",
+                "operation": "db_query",
+                "operationTitle": "Query DB",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "180",
+              "left": "640",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "84d14f19-d1b7-4bf1-ba0c-4395e899b090"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Run Query",
+              "targetStep": "/api/3/workflow_steps/84d14f19-d1b7-4bf1-ba0c-4395e899b090",
+              "sourceStep": "/api/3/workflow_steps/29e6fbbf-c166-46d5-b021-21f2b72cdb7c",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "32134acf-cff5-46aa-b0fc-3f5d83a409b5"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "32b36ac1-6572-4184-9e4f-8cc4688a1a6e",
+          "id": 545,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "oracle-db"
+          ]
+        }
+      ]
+    }
+  ],
+  "exported_tags": [
+    "oracle-db"
+  ]
+}

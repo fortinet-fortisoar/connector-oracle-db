@@ -1,0 +1,4 @@
+# Dependencies
+sqlalchemy
+voluptuous
+cx-Oracle==8.3.0

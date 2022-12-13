@@ -2,8 +2,8 @@
     "name": "oracle-db",
     "version": "1.0.0",
     "label": "Oracle Database",
-    "description": "FortiSOAR integration with Oracle DB, supports Oracle v12c onward",
-    "publisher": "Naili.M",
+    "description": "Use Oracle Database connector to connect to a database and then query the database and retrieve data. supports Oracle v12c onward. ",
+    "publisher": "Fortinet CSE",
     "icon_small_name": "small.png",
     "icon_large_name": "large.png",
     "category": "utilities",
@@ -15,7 +15,8 @@
                 "type": "text",
                 "visible": true,
                 "title": "Host",
-                "editable": true
+                "editable": true,
+                "description": "Specify the Hostname of the database server to which you will connect and perform the automated operations."
             },
             {
                 "name": "port",
@@ -23,7 +24,8 @@
                 "type": "text",
                 "visible": true,
                 "title": "Port",
-                "editable": true
+                "editable": true,
+                "description": "Specify the Port number used for connecting to the database server."
             },
             {
                 "name": "database",
@@ -31,7 +33,8 @@
                 "type": "text",
                 "visible": true,
                 "title": "Database name",
-                "editable": true
+                "editable": true,
+                "description": "Specify the name of the database to which you will connect and perform automated operations."
             },
             {
                 "name": "username",
@@ -39,7 +42,8 @@
                 "type": "text",
                 "visible": true,
                 "title": "Username",
-                "editable": true
+                "editable": true,
+                "description": "Specify the username to access the database to which you will connect and perform automated operations."
             },
             {
                 "name": "password",
@@ -47,7 +51,8 @@
                 "type": "password",
                 "visible": true,
                 "title": "Password",
-                "editable": true
+                "editable": true,
+                "description": "Specify the password to access the database to which you will connect and perform automated operations."
             }
         ]
     },
@@ -56,7 +61,7 @@
             "operation": "db_query",
             "annotation": "db_query",
             "title": "Query DB",
-            "description": "Make DB Query with query string",
+            "description": "Performs a query on the configured database based on the query string you have specified.",
             "enabled": true,
             "output_schema": {},
             "parameters": [
@@ -67,12 +72,13 @@
                     "type": "text",
                     "visible": true,
                     "title": "Query String",
-                    "editable": true
+                    "editable": true,
+                    "description": "Specify the query that you want to run on the configured database for retrieving the required data."
                 }
             ]
         }
     ],
     "cs_approved": false,
     "cs_compatible": true,
-    "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/oracle-db/381/oracle-db-v1.0.0"
+    "help_online": ""
 }

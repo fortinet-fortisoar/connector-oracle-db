@@ -1,17 +1,13 @@
-import json
-import os
+import json, os, arrow
 from datetime import datetime
-
-import arrow
 from sqlalchemy import create_engine
 from sqlalchemy.sql import text
-from voluptuous import (
-    Required, All, Length, Range,
-    Schema, Optional, Coerce, In
-)
+from voluptuous import (Required, All, Length, Range, Schema, Optional, Coerce, In)
 from connectors.core.connector import get_logger, ConnectorError
 from connectors.core.result import Result
+
 logger = get_logger("oracle-db")
+
 
 def make_query(config, params, *args, **kwargs):
     """
@@ -46,7 +42,6 @@ class DatabaseConnector():
     driver = 'oracle+cx_oracle'
     sdn_string = '{engine}://{user}:{password}@{host}:{port}/?service_name={db}'
 
-    
     db_config_schema = Schema({
         Required('host'): All(str, Length(min=1)),
         Optional('port', default=0): All(Coerce(int), Range(min=0, max=65535)),
@@ -150,5 +145,3 @@ class DatabaseConnector():
         """
         return self.make_query(text(query_string))
 
-    def select_query(self, table, columns, *args, **kwargs):
-        pass

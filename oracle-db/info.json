@@ -1,84 +1,87 @@
 {
-    "name": "oracle-db",
-    "version": "1.0.0",
-    "label": "Oracle Database",
-    "description": "Use Oracle Database connector to connect to a database and then query the database and retrieve data. supports Oracle v12c onward. ",
-    "publisher": "Fortinet CSE",
-    "icon_small_name": "small.png",
-    "icon_large_name": "large.png",
-    "category": "utilities",
-    "configuration": {
-        "fields": [
-            {
-                "name": "host",
-                "required": true,
-                "type": "text",
-                "visible": true,
-                "title": "Host",
-                "editable": true,
-                "description": "Specify the Hostname of the database server to which you will connect and perform the automated operations."
-            },
-            {
-                "name": "port",
-                "required": true,
-                "type": "text",
-                "visible": true,
-                "title": "Port",
-                "editable": true,
-                "description": "Specify the Port number used for connecting to the database server."
-            },
-            {
-                "name": "database",
-                "required": true,
-                "type": "text",
-                "visible": true,
-                "title": "Database name",
-                "editable": true,
-                "description": "Specify the name of the database to which you will connect and perform automated operations."
-            },
-            {
-                "name": "username",
-                "required": false,
-                "type": "text",
-                "visible": true,
-                "title": "Username",
-                "editable": true,
-                "description": "Specify the username to access the database to which you will connect and perform automated operations."
-            },
-            {
-                "name": "password",
-                "required": false,
-                "type": "password",
-                "visible": true,
-                "title": "Password",
-                "editable": true,
-                "description": "Specify the password to access the database to which you will connect and perform automated operations."
-            }
-        ]
-    },
-    "operations": [
+  "name": "oracle-db",
+  "version": "1.0.0",
+  "label": "Oracle Database",
+  "description": "Use Oracle Database connector to connect to a database and then query the database and retrieve data. supports Oracle v12c onward. ",
+  "publisher": "Fortinet CSE",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "category": "Database",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/oracle-database/463/oracle-database-v1-0-0",
+  "configuration": {
+    "fields": [
+      {
+        "name": "host",
+        "required": true,
+        "type": "text",
+        "visible": true,
+        "title": "Host",
+        "editable": true,
+        "description": "Specify the Hostname of the database server to which you will connect and perform the automated operations."
+      },
+      {
+        "name": "port",
+        "required": true,
+        "type": "text",
+        "visible": true,
+        "title": "Port",
+        "editable": true,
+        "description": "Specify the name of the database to which you will connect and perform name automated operations."
+      },
+      {
+        "name": "database",
+        "required": true,
+        "type": "text",
+        "visible": true,
+        "title": "Database name",
+        "editable": true,
+        "description": "Specify the name of the database to which you will connect and perform automated operations."
+      },
+      {
+        "name": "username",
+        "required": false,
+        "type": "text",
+        "visible": true,
+        "title": "Username",
+        "editable": true,
+        "description": "Specify the username to access the database to which you will connect and perform automated operations."
+      },
+      {
+        "name": "password",
+        "required": false,
+        "type": "password",
+        "visible": true,
+        "title": "Password",
+        "editable": true,
+        "description": "Specify the password to access the database to which you will connect and perform automated operations."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "db_query",
+      "annotation": "db_query",
+      "title": "Query DB",
+      "description": "Performs a query on the configured database based on the query string you have specified.",
+      "enabled": true,
+      "output_schema": {},
+      "parameters": [
         {
-            "operation": "db_query",
-            "annotation": "db_query",
-            "title": "Query DB",
-            "description": "Performs a query on the configured database based on the query string you have specified.",
-            "enabled": true,
-            "output_schema": {},
-            "parameters": [
-                {
-                    "name": "query_string",
-                    "value": "",
-                    "required": true,
-                    "type": "text",
-                    "visible": true,
-                    "title": "Query String",
-                    "editable": true,
-                    "description": "Specify the query that you want to run on the configured database for retrieving the required data."
-                }
-            ]
+          "name": "query_string",
+          "value": "",
+          "required": true,
+          "type": "text",
+          "visible": true,
+          "title": "Query String",
+          "editable": true,
+          "description": "Specify the query that you want to run on the configured database from which you want to retrieve the required data.",
+          "tooltip": "Specify the query that you want to run on the configured database for retrieving the required data. Eg. select * from Table;",
+          "placeholder": "select * from Table;"
         }
-    ],
-    "cs_approved": false,
-    "cs_compatible": true,
-    "help_online": ""
+      ]
+    }
+  ],
+  "cs_approved": false,
+  "cs_compatible": true
 }
+

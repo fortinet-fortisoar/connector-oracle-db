@@ -12,5 +12,5 @@ class OracleDB(Connector):
 
     def check_health(self, config):
         config.pop('name', None)
-        query_string = 'select 1 from dual' if config['engine'] == 'oracle' else 'select 1'
+        query_string = 'select 1 from dual'
         make_query(config, {'query_string': query_string})

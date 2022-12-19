@@ -1,13 +1,17 @@
-import json, os, arrow
+import json
+import os
 from datetime import datetime
+
+import arrow
 from sqlalchemy import create_engine
 from sqlalchemy.sql import text
-from voluptuous import (Required, All, Length, Range, Schema, Optional, Coerce, In)
+from voluptuous import (
+    Required, All, Length, Range,
+    Schema, Optional, Coerce, In
+)
 from connectors.core.connector import get_logger, ConnectorError
 from connectors.core.result import Result
-
 logger = get_logger("oracle-db")
-
 
 def make_query(config, params, *args, **kwargs):
     """
@@ -39,9 +43,9 @@ class DatabaseConnector():
     configuration object that aids in making queries to its configured database.
     """
 
-    driver = 'oracle+cx_oracle'
     sdn_string = '{engine}://{user}:{password}@{host}:{port}/?service_name={db}'
 
+    
     db_config_schema = Schema({
         Required('host'): All(str, Length(min=1)),
         Optional('port', default=0): All(Coerce(int), Range(min=0, max=65535)),
@@ -77,16 +81,19 @@ class DatabaseConnector():
         extra_keys = [key for key in db_config.keys() if key not in allowed_keys]
         for extra_key in extra_keys:
             db_config.pop(extra_key, None)
+
+        db_config.update({'engine':'oracle+cx_oracle'})
         db_config = self.db_config_schema(db_config)
 
         self.dsn = self.sdn_string.format(
-            engine=self.driver,
+            engine=db_config['engine'],
             user=db_config['username'],
             password=db_config['password'],
             host=db_config['host'],
             port=db_config['port'],
-            db=db_config['database'],
+            db=db_config['database']
         )
+
         self.engine = create_engine(self.dsn, echo=False)
 
     def make_query(self, query, *args, **kwargs):
@@ -145,3 +152,5 @@ class DatabaseConnector():
         """
         return self.make_query(text(query_string))
 
+    def select_query(self, table, columns, *args, **kwargs):
+        pass

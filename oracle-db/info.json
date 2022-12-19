@@ -26,6 +26,7 @@
         "visible": true,
         "title": "Port",
         "editable": true,
+        "tooltip": "Specify the name of the database to which you will connect and perform name automated operations.",   
         "description": "Specify the name of the database to which you will connect and perform name automated operations."
       },
       {
@@ -35,6 +36,7 @@
         "visible": true,
         "title": "Database name",
         "editable": true,
+        "tooltip": "Specify the name of the database to which you will connect and perform automated operations.",
         "description": "Specify the name of the database to which you will connect and perform automated operations."
       },
       {
@@ -44,6 +46,7 @@
         "visible": true,
         "title": "Username",
         "editable": true,
+        "tooltip": "Specify the username to access the database to which you will connect and perform automated operations.",
         "description": "Specify the username to access the database to which you will connect and perform automated operations."
       },
       {
@@ -53,7 +56,8 @@
         "visible": true,
         "title": "Password",
         "editable": true,
-        "description": "Specify the password to access the database to which you will connect and perform automated operations."
+        "tooltip":"Specify the password to access the database to which you will connect and perform automated operations. Must not include the @ character",
+        "description": "Specify the password to access the database to which you will connect and perform automated operations. Must not include the @ character"
       }
     ]
   },

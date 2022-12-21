@@ -151,6 +151,3 @@ class DatabaseConnector():
         :return: Result of the query. See `:func:make_query`
         """
         return self.make_query(text(query_string))
-
-    def select_query(self, table, columns, *args, **kwargs):
-        pass

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "label": "Oracle Database",
   "description": "Use Oracle Database connector to connect to a database and then query the database and retrieve data. supports Oracle v12c onward. ",
-  "publisher": "Naili.M",
+  "publisher": "Fortinet CSE",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "category": "Database",

@@ -1,5 +1,5 @@
 # Overview
-========
+-----------
 
  Oracle Database connector enables FortiSOAR to run SQL query on Oracle Database 12c+
 
@@ -64,4 +64,5 @@ The following automated operations can be included in playbooks:
 #### Input parameters
 
 |Parameter|Description|
-| Query String | Specify the PL*SQL query that you want to run on the configured database for retrieving the required data |.
+|----------|-------------|
+| Query String | Specify the PL*SQL query that you want to run on the configured database |

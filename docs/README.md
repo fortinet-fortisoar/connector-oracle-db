@@ -5,7 +5,7 @@
 # Oracle Database
 
 
-Use this connector to connect to an Oracle database to run queies and retrieve data. You can connect to multiple databases by setting up multiple configurations. 
+Use this connector to connect to an Oracle database to run queries and retrieve data. You can connect to multiple databases by setting up multiple configurations. 
 
 ### Version information
 

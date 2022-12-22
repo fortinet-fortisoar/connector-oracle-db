@@ -1,30 +1,25 @@
 # Overview
------------
 
  Oracle Database connector enables FortiSOAR to run SQL query on Oracle Database 12c+
 
 # Oracle Database
------------------
+
 
 Use this connector to connect to an Oracle database to run queies and retrieve data. You can connect to multiple databases by setting up multiple configurations. 
 
 ### Version information
------------------------
 
-Connector Version: 1.0.0
-
-Authored By: Fortinet CSE.
-
-Certified: No
+- Connector Version: 1.0.0
+- Authored By: Fortinet CSE.
+- Certified: No
 
 ### Release Notes for version 1.0.0
------------------------------------
+
 - Tested on 
     - FortiSOAR 7.3.0
     - Oracle Database XE 21c
 
 ### Installation
-----------------
 
 - Download and **install Oracle Instant Client:**
     - On RHEL, CentOS or Rocky linux install the required package using the command line below
@@ -37,7 +32,6 @@ yum install https://download.oracle.com/otn_software/linux/instantclient/218000/
 
 
 ### Configuration parameters
-----------------------------
 
 In FortiSOAR™, on the **Content Hub** (or Connector Store) page, click the **Manage** tab, and then click the **Oracle Database** connector card. On the connector page pops up. Select the  **Configurations** tab to enter the required configuration details.
 
@@ -51,7 +45,6 @@ In FortiSOAR™, on the **Content Hub** (or Connector Store) page, click the **M
 |Password| Specify the password to access the database to which you will connect and perform automated operations.|
 
 ### Actions supported by the connector
----------------------------------------
 
 The following automated operations can be included in playbooks:
 

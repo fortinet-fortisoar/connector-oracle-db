@@ -26,7 +26,9 @@
         "visible": true,
         "title": "Port",
         "editable": true,
-        "description": "Specify the name of the database to which you will connect and perform name automated operations."
+        "value": "1521",
+        "tooltip": "Specify the TCP listener port, 1521 is the default",
+        "description": "Specify the Database listener port"
       },
       {
         "name": "database",
@@ -35,6 +37,7 @@
         "visible": true,
         "title": "Database name",
         "editable": true,
+        "tooltip": "Specify the name of the database to which you will connect and perform automated operations.",
         "description": "Specify the name of the database to which you will connect and perform automated operations."
       },
       {
@@ -44,6 +47,7 @@
         "visible": true,
         "title": "Username",
         "editable": true,
+        "tooltip": "Specify the username to access the database to which you will connect and perform automated operations.",
         "description": "Specify the username to access the database to which you will connect and perform automated operations."
       },
       {
@@ -53,7 +57,8 @@
         "visible": true,
         "title": "Password",
         "editable": true,
-        "description": "Specify the password to access the database to which you will connect and perform automated operations."
+        "tooltip":"Specify the password to access the database to which you will connect and perform automated operations. Must not include the @ character",
+        "description": "Specify the password to access the database to which you will connect and perform automated operations. Must not include the @ character"
       }
     ]
   },
@@ -84,4 +89,3 @@
   "cs_approved": false,
   "cs_compatible": true
 }
-

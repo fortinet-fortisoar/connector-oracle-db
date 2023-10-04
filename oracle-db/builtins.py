@@ -1,4 +1,4 @@
-import json
+import simplejson as json
 import os
 from datetime import datetime
 
@@ -134,9 +134,7 @@ class DatabaseConnector():
                 )
                 logger.error(err)
                 raise TypeError(err)
-
-        # http://i.imgur.com/jUdTCRt.jpg
-        return [json.loads(json.dumps(dict(res), default=_handler))
+        return [json.loads(json.dumps(dict(res._mapping), default=_handler, use_decimal=True))
                 for res in results]
 
     def text_query(self, query_string, *args, **kwargs):

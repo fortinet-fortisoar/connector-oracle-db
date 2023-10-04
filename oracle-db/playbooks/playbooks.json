@@ -3,7 +3,7 @@
   "data": [
     {
       "@type": "WorkflowCollection",
-      "name": "Sample - Oracle Database - 1.0.0",
+      "name": "Sample - Oracle Database - 1.0.1",
       "description": "Sample playbooks for \"Oracle Database\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
       "image": "",

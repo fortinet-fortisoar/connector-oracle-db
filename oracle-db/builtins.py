@@ -111,15 +111,15 @@ class DatabaseConnector():
         is_fetch_query = False
         with self.engine.connect() as conn:
             results = conn.execute(query)
-            conn.commit()
             is_fetch_query = results.returns_rows
             if is_fetch_query:
                 results = results.fetchall()
 
-        if not is_fetch_query:
-            result = Result()
-            result.set_result(status="Success", message="Query executed successfully")
-            return result
+            if not is_fetch_query:
+                conn.commit()
+                result = Result()
+                result.set_result(status="Success", message="Query executed successfully")
+                return result
 
         # handles other unserializeable types
         # like datetimes and byte arrays

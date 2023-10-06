@@ -111,6 +111,7 @@ class DatabaseConnector():
         is_fetch_query = False
         with self.engine.connect() as conn:
             results = conn.execute(query)
+            conn.commit()
             is_fetch_query = results.returns_rows
             if is_fetch_query:
                 results = results.fetchall()

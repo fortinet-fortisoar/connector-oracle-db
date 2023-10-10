@@ -1,4 +1,4 @@
-import json
+import simplejson as json
 import os
 from datetime import datetime
 
@@ -115,10 +115,11 @@ class DatabaseConnector():
             if is_fetch_query:
                 results = results.fetchall()
 
-        if not is_fetch_query:
-            result = Result()
-            result.set_result(status="Success", message="Query executed successfully")
-            return result
+            if not is_fetch_query:
+                conn.commit()
+                result = Result()
+                result.set_result(status="Success", message="Query executed successfully")
+                return result
 
         # handles other unserializeable types
         # like datetimes and byte arrays
@@ -134,9 +135,7 @@ class DatabaseConnector():
                 )
                 logger.error(err)
                 raise TypeError(err)
-
-        # http://i.imgur.com/jUdTCRt.jpg
-        return [json.loads(json.dumps(dict(res), default=_handler))
+        return [json.loads(json.dumps(dict(res._mapping), default=_handler, use_decimal=True))
                 for res in results]
 
     def text_query(self, query_string, *args, **kwargs):

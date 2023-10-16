@@ -1,13 +1,13 @@
 {
   "name": "oracle-db",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "label": "Oracle Database",
   "description": "Use Oracle Database connector to connect to a database and then query the database and retrieve data. supports Oracle v12c onward. ",
   "publisher": "Fortinet CSE",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "category": "Database",
-  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/oracle-database/463/oracle-database-v1-0-0",
+  "help_online": "",
   "configuration": {
     "fields": [
       {
@@ -22,13 +22,13 @@
       {
         "name": "port",
         "required": true,
-        "type": "text",
+        "type": "integer",
         "visible": true,
         "title": "Port",
         "editable": true,
         "value": "1521",
-        "tooltip": "Specify the TCP listener port, 1521 is the default",
-        "description": "Specify the Database listener port"
+        "tooltip": "Specify the Database Listener Port number used for connecting to the database server. By default, this is set as 1521.",
+        "description": "Specify the Database Listener Port number used for connecting to the database server. By default, this is set as 1521"
       },
       {
         "name": "database",

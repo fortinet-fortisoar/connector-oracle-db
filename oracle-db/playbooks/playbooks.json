@@ -77,7 +77,7 @@
                 "params": {
                   "query_string": "select 1 from dual"
                 },
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "connector": "oracle-db",
                 "operation": "db_query",
                 "operationTitle": "Query DB",

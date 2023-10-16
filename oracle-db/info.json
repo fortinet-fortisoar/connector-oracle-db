@@ -22,7 +22,7 @@
       {
         "name": "port",
         "required": true,
-        "type": "integer",
+        "type": "text",
         "visible": true,
         "title": "Port",
         "editable": true,

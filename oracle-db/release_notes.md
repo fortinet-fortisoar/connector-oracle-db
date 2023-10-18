@@ -1,2 +1,2 @@
 #### What's Fixed
-- Fixed decimal datatype parsing issue to update latest version of sqlalchemy and add external simplejson library.
+- Resolve the decimal datatype parsing issue by updating the latest version of 'sqlalchemy' and adding the external 'simplejson' library.
